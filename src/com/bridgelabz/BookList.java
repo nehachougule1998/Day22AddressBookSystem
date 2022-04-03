@@ -42,9 +42,14 @@ public class BookList {
 		case 0:
 			Contact contact=new Contact();
 			contact.addContact();
-			books.get(i).list.add(contact);
-			System.out.println("Contact added successfully");
-			
+			boolean duplicateContact = books.get(i).list.stream().anyMatch(x -> x.firstName.equals(contact.firstName));
+			if (duplicateContact == true) {
+				System.out.println("It is a duplicate contact.");
+				return;
+			} else {
+				books.get(i).list.add(contact);
+				System.out.println("Contact added successfully");
+			}
 			break;
 		case 1:
 			if(books.get(i).list.size()==0) {System.out.println("Addressbook is empty");}

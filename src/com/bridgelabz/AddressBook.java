@@ -5,14 +5,21 @@ import java.util.ArrayList;
 
 public class AddressBook {
 
-	ArrayList<Contact> list = new ArrayList<Contact>();
-	String bookName; /// It represent the name of book
+	ArrayList<Contact> list = new ArrayList<Contact>();//// It represents a single diary where contact has been stored
+	String bookName; /// It represent the name of diary
 
 	void addContact() {
 		Contact contact = new Contact();
 		contact.addContact();
-		list.add(contact);
-		System.out.println("Contact added successfully");
+		boolean duplicateContact = list.stream().anyMatch(x -> x.firstName.equals(contact.firstName));
+		if (duplicateContact == true) {
+			System.out.println("It is a duplicate contact.");
+			return;
+		} else {
+			list.add(contact);
+			System.out.println("Contact added successfully");
+		}
+
 	}
 
 	void deletePerson(String name, ArrayList<Contact> list) {
@@ -68,9 +75,9 @@ public class AddressBook {
 			System.out.println("Enter the name of Book you want to  access or add or press 'q' to quit");
 			String bookName = scan3.nextLine();
 			if (bookName.equals("q")) {
-				//if (addressBook.list.size() > 0) {
-					//book.addBook(bookName, addressBook);
-				//}
+				// if (addressBook.list.size() > 0) {
+				// book.addBook(bookName, addressBook);
+				// }
 				System.out.println("The program is closed");
 				break;
 			}
@@ -81,7 +88,8 @@ public class AddressBook {
 				if (result == 1) {
 					break;
 				}
-				System.out.println("Do you want to add/edit/delete the contact (0/1/2) :Press 3 to Go back to main menu");
+				System.out
+						.println("Do you want to add/edit/delete the contact (0/1/2) :Press 3 to Go back to main menu");
 				Scanner scan = new Scanner(System.in);
 				int input = scan.nextInt();
 
