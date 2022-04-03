@@ -7,12 +7,11 @@ public class Contact {
 	String address;
 	String city;
 	String state;
-
-	String phoneNumber;
+    String phoneNumber;
 	String email;
-	long zip;
+	String zip;
 	
-	void addInfo() {
+	void addContact() {
 		Scanner scan=new Scanner(System.in);
 		System.out.println("First Name :");
 		this.firstName = scan.nextLine();
@@ -29,7 +28,7 @@ public class Contact {
 		System.out.println("Enter Email : ");
 		this.email = scan.nextLine();
 		System.out.println("Enter zip : ");
-		this.zip = scan.nextLong();
+		this.zip = scan.nextLine();
 	}
 }
 
