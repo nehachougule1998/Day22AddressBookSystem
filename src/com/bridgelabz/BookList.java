@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 public class BookList {
 
 	static ArrayList<AddressBook> books = new ArrayList<AddressBook>();
+	
 
 	void addBook(String name, AddressBook book) {
 		book.bookName = name;
@@ -50,6 +51,7 @@ public class BookList {
 			matchedContact.stream().forEach(x -> System.out.println(x.firstName));
 			
 		}
+		System.out.println("Number of persons are : " + count);
 	}
 	
 	void showPersonsByState(String placeName) {
@@ -62,10 +64,9 @@ public class BookList {
 			List<Contact> matchedContact = books.get(i).list.stream().filter(x -> x.state.equals(placeName))
 					.collect(Collectors.toList());
 			count += books.get(i).list.stream().filter(x -> x.state.equals(placeName)).count();
-			matchedContact.stream().forEach(x -> System.out.println(x.firstName));
-			
+			matchedContact.stream().forEach(x -> System.out.println(x.firstName));	
 		}
-		System.out.println("Number of persons are " +count);
+		System.out.println("Number of persons are : " + count);
 	}
 
 	void operations(ArrayList<AddressBook> books, int i) {
@@ -73,7 +74,7 @@ public class BookList {
 		int condition1 = 0;/// This is for checking the contact name exist or not
 		int condition = 0; /// This is condition for running while loop
 		while (condition == 0) {
-			System.out.println("Do you want to add/edit/delete contact (0/1/2) :Press 3 to go back to main menu");
+			System.out.println("Do you want to add/edit/delete contact (0/1/2) :Press 3 to go back to main menu: Press 4 to sort contact");
 			int response = input.nextInt();
 			switch (response) {
 			case 0:
@@ -134,6 +135,25 @@ public class BookList {
 			case 3:
 				condition = 1;
 				break;
+			
+			case 4:
+				if (books.get(i).list.size() == 0) {
+					System.out.println("Addressbook is empty");
+				}
+				else {
+					Scanner scan = new Scanner(System.in);
+					while (true) {
+						System.out.println(
+								"Press \n 0 to sort by contact name \n 1 to sort by city \n 2 to sort by state \n 3 to sort by zip");
+						int response1 = scan.nextInt();
+						int a = books.get(i).sort(response1, books.get(i));
+						if(a == 0) {
+							break;
+						}
+					}
+
+				}
+				break;
 			default:
 				System.out.println("Enter valid command");
 				break;
@@ -168,4 +188,3 @@ public class BookList {
 		return result;
 	}
 }
-
