@@ -62,6 +62,34 @@ public class AddressBook {
 		}
 
 	}
+	
+	public int sort(int option, AddressBook addressBook) {
+		int a = 0;
+		switch (option) {
+		case 0:
+			addressBook.list.sort((Contact x1, Contact x2) -> x1.firstName.compareTo(x2.firstName));
+			addressBook.list.forEach((s) -> System.out.println(s));
+			break;
+
+		case 1:
+			addressBook.list.sort((Contact x1, Contact x2) -> x1.city.compareTo(x2.city));
+			addressBook.list.forEach((s) -> System.out.println(s));
+			break;
+		case 2:
+			addressBook.list.sort((Contact x1, Contact x2) -> x1.state.compareTo(x2.state));
+			addressBook.list.forEach((s) -> System.out.println(s));
+			break;
+		case 3:
+			addressBook.list.sort((Contact x1, Contact x2) -> x1.zip.compareTo(x2.zip));
+			addressBook.list.forEach((s) -> System.out.println(s));
+			break;
+		default:
+			System.out.println("Enter valid option");
+			a = 1;
+			break;
+		}
+		return a;
+	}
 
 
 	public static void main(String[] args) {
@@ -130,8 +158,16 @@ public class AddressBook {
 					break;
 				}
 				else if(input == 4) {
-					addressBook.list.sort((Contact x1, Contact x2)->x1.firstName.compareTo(x2.firstName)); 
-				    addressBook.list.forEach((x)->System.out.println(x));  
+					Scanner scan4 = new Scanner(System.in);
+					while (true) {
+						System.out.println("Press \n 0 to sort by contact name \n 1 to sort by city \n 2 to sort by state \n 3 to sort by zip");
+						int response = scan4.nextInt();
+						int a = addressBook.sort(response, addressBook);
+						if(a == 0) {
+							break;
+						}
+					}
+
 				}
 
 				else {
@@ -143,4 +179,3 @@ public class AddressBook {
 	}
 
 }
-
