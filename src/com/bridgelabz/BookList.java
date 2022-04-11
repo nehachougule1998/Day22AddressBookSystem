@@ -44,7 +44,7 @@ public class BookList {
 		BufferedReader reader;
 		if (directoryListing != null) {
 			for (File child : directoryListing) {
-				if (child.getName().matches("(.txt)$")) {
+				if (child.getName().matches("(.csv)$")) {
 					reader = new BufferedReader(new FileReader(child));
 					String line = reader.readLine();
 					while (line != null) {
@@ -73,7 +73,7 @@ public class BookList {
 		BufferedReader reader;
 		if (directoryListing != null) {
 			for (File child : directoryListing) {
-				if (child.getName().matches("(.txt)$")) {
+				if (child.getName().matches("(.csv)$")) {
 					reader = new BufferedReader(new FileReader(child));
 					String line = reader.readLine();
 					while (line != null) {
@@ -264,7 +264,7 @@ public class BookList {
 		int track = 0;
 		File file = new File(
 				"D:\\java eclipse\\Day22AddressBookSystem\\src\\com\\bridgelabz" + name
-						+ ".txt");
+						+ ".csv");
 		if (!file.exists()) {
 			System.out.println("Booklist was empty. " + name + " is created.");
 			file.createNewFile();
@@ -279,4 +279,3 @@ public class BookList {
 		return result;
 	}
 }
-

@@ -42,21 +42,21 @@ public class AddressBook {
 	void deletePerson(String name, String bookName) throws IOException {
 		File file = new File(
 				"D:\\java eclipse\\Day22AddressBookSystem\\src\\com\\bridgelabz"
-						+ bookName + ".txt");
+						+ bookName + ".csv");
 		bookList.deleteContact(file, name);
 	}
 
 	void editPerson(String name, String bookName) throws IOException {
 		File file = new File(
 				"D:\\java eclipse\\Day22AddressBookSystem\\src\\com\\bridgelabz"
-						+ bookName + ".txt");
+						+ bookName + ".csv");
 		bookList.updateContact(file, bookName);
 	}
 
 	boolean viewSortedResult(int option, String bookName) throws IOException {
 		File file = new File(
 				"D:\\java eclipse\\Day22AddressBookSystem\\src\\com\\bridgelabz"
-						+ bookName + ".txt");
+						+ bookName + ".csv");
 		return bookList.viewSortedResult(file, option);
 	}
 
@@ -94,7 +94,7 @@ public class AddressBook {
 			int condition = 0;///// It will keep check on the addressbook created or not
 			File file = new File(
 					"D:\\java eclipse\\Day22AddressBookSystem\\src\\com\\bridgelabz"
-							+ bookName + ".txt");
+							+ bookName + ".csv");
 			while (true) {
 				if (result == 1) {
 					break;

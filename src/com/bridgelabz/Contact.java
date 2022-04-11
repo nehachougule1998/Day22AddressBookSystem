@@ -1,15 +1,13 @@
 package com.bridgelabz;
 import java.util.Scanner;
-
 public class Contact {
-
+	   
 	String firstName;
 	String lastName;
 	String address;
 	String city;
 	String state;
-
-	String phoneNumber;
+  String phoneNumber;
 	String email;
 	String zip;
 	
@@ -35,9 +33,9 @@ public class Contact {
 
 	@Override
 	public String toString() {
-		return firstName+","+lastName+","+address +","+ city
-				+","+ state +","+phoneNumber+","+email +","+ zip;
+		return "Contact [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", city=" + city
+				+ ", state=" + state + ", phoneNumber=" + phoneNumber + ", email=" + email + ", zip=" + zip + "]";
 	}
 	
-	
 }
+
