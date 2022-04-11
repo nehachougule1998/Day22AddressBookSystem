@@ -1,13 +1,13 @@
 package com.bridgelabz;
 import java.util.Scanner;
 public class Contact {
-////variables representation////
+	   
 	String firstName;
 	String lastName;
 	String address;
 	String city;
 	String state;
-    String phoneNumber;
+  String phoneNumber;
 	String email;
 	String zip;
 	
